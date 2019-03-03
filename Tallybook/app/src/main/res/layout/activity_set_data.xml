@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/set_data_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorTheme"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/set_data_label" />
+
+        <View
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="start"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/cancel_switch"
+            android:clickable="true"
+            android:onClick="setDataCancel" />
+
+        <View
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="end"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/confirm_switch"
+            android:clickable="true"
+            android:onClick="setDataConfirm" />
+
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:id="@+id/layout_in_out"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/set_data_toolbar">
+
+        <TextView
+            android:id="@+id/in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_in_out"
+            android:clickable="true"
+            android:paddingHorizontal="34dp"
+            android:paddingVertical="10dp"
+            android:text="@string/in"
+            android:textColor="@color/colorAccent"
+            android:textSize="15sp"
+            android:onClick="onInClick"/>
+
+        <TextView
+            android:id="@+id/out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/shape_in_out_select"
+            android:clickable="true"
+            android:paddingHorizontal="34dp"
+            android:paddingVertical="10dp"
+            android:text="@string/out"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:onClick="onOutClick"
+            />
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/category_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/layout_in_out"
+        android:layout_marginTop="20dp"
+        android:text="@string/category_hint"
+        android:textSize="16sp"
+        android:padding="10dp"
+        android:drawablePadding="6dp"
+        android:clickable="true"
+        android:onClick="onCategoryClick" />
+
+    <EditText
+        android:id="@+id/amount_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/category_tv"
+        android:layout_marginTop="8dp"
+        android:background="@null"
+        android:hint="@string/money_hint"
+        android:inputType="numberDecimal"
+        android:maxLength="10"
+        android:textSize="16sp"
+        android:padding="10dp"
+        android:drawablePadding="6dp" />
+
+    <TextView
+        android:id="@+id/time_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/amount_et"
+        android:layout_marginTop="8dp"
+        android:text="@string/time_hint"
+        android:textSize="16sp"
+        android:padding="10dp"
+        android:drawablePadding="6dp"
+        android:clickable="true"
+        android:onClick="setTimeClick"/>
+
+    <EditText
+        android:id="@+id/remarks_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/time_tv"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/remark_selector"
+        android:hint="@string/remark_hint"
+        android:textSize="16sp"
+        android:padding="10dp"
+        android:drawablePadding="6dp"
+        android:maxLines="5"
+        android:maxLength="200">
+
+    </EditText>
+</android.support.constraint.ConstraintLayout>
