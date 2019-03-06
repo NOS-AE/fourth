@@ -1,7 +1,0 @@
-<litepal>
-    <dbname value="ItemList"/>
-    <version value="2"/>
-    <list>
-        <mapping class="com.example.tallybook.Item"/>
-    </list>
-</litepal>
