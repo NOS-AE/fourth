@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/all"
+        android:title="@string/sort_all"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/year"
+        android:title="@string/sort_year"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/month"
+        android:title="@string/sort_month"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/day"
+        android:title="@string/sort_day"
+        app:showAsAction="never"/>
+</menu>

@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">TallyBook</string>
+    <string name="main_label">记账本</string>
+    <string name="main_label_checked">多选</string>
+    <string name="checked">checked</string>
+    <string name="unchecked">unchecked</string>
+    <string name="no_data_tv">暂无数据显示\n按右下角按钮添加数据</string>
+
+    <string name="help_tv">
+        功能：\n
+        \t增添、查看、删除、更改收支，并可按收入\\支出、年\\月\\日查看\n\n
+        删除技巧：\n
+        \t1、拖动收支删除\n
+        \t\2、按下任意收支最右边的[灰色圆点]进入多选，并选中当前条目:)\n
+    </string>
+
+    <string name="set_data_label">新建条目</string>
+    <string name="in">收入</string>
+    <string name="out">支出</string>
+    <string name="money_hint">请填写金额</string>
+    <string name="category_hint">请选择分类</string>
+    <string name="time_hint">请选择时间</string>
+    <string name="remark_hint">写点什么作为备注吧…（200字以内）</string>
+    <string name="set_time">设置时间</string>
+    <string name="sort_all">全部</string>
+    <string name="sort_year">按年</string>
+    <string name="sort_month">按月分类</string>
+    <string name="sort_day">按日分类</string>
+
+    <string-array name="in_or_out">
+        <item>全部</item>
+        <item>收入</item>
+        <item>支出</item>
+    </string-array>
+</resources>
