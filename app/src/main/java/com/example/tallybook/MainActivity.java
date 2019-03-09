@@ -33,6 +33,8 @@ import com.bigkoo.pickerview.listener.OnTimeSelectListener;
 import com.bigkoo.pickerview.view.TimePickerView;
 import org.litepal.LitePal;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -307,38 +309,40 @@ public class MainActivity extends AppCompatActivity {
 
     //更新总收支的显示
     private void allShowChange(int IOId){
+        NumberFormat format = DecimalFormat.getInstance();
+        format.setMinimumFractionDigits(2);
         if(IOId == 0){
             //全部
             StringBuilder builder = new StringBuilder();
             builder.append("今年收支差额\n");
-            builder.append(yAll[0]+yAll[1]);
+            builder.append(format.format(yAll[0]+yAll[1]));
             yearTV.setText(builder);
 
             builder.delete(0,builder.length());
             builder.append("今月收支差额\n");
-            builder.append(mAll[0]+mAll[1]);
+            builder.append(format.format(mAll[0]+mAll[1]));
             monthTV.setText(builder);
 
             builder.delete(0,builder.length());
             builder.append("今天收支差额\n");
-            builder.append(dAll[0]+dAll[1]);
+            builder.append(format.format(dAll[0]+dAll[1]));
             dayTV.setText(builder);
         }
         else{
             //收入，支出
             StringBuilder builder = new StringBuilder();
             builder.append(IOId==1?"今年收入总额\n":"今年支出总额\n");
-            builder.append(IOId==1?yAll[1]:yAll[0]);
+            builder.append(format.format(IOId==1?yAll[1]:yAll[0]));
             yearTV.setText(builder);
 
             builder.delete(0,builder.length());
             builder.append(IOId==1?"今月收入总额\n":"今月支出总额\n");
-            builder.append(IOId==1?mAll[1]:mAll[0]);
+            builder.append(format.format(IOId==1?mAll[1]:mAll[0]));
             monthTV.setText(builder);
 
             builder.delete(0,builder.length());
             builder.append(IOId==1?"今天收入总额\n":"今天支出总额\n");
-            builder.append(IOId==1?dAll[1]:dAll[0]);
+            builder.append(format.format(IOId==1?dAll[1]:dAll[0]));
             dayTV.setText(builder);
         }
     }
@@ -608,6 +612,8 @@ public class MainActivity extends AppCompatActivity {
                 allShowChange(sortIOId);
                 //对源数据的元素替换
                 itemList.set(itemList.indexOf(preItem),item);
+                //数据库更新数据
+                itemList.get(itemList.indexOf(item)).update(item.getId());
                 adapter.notifyItemChanged(editIndex);
 
             }
@@ -619,6 +625,7 @@ public class MainActivity extends AppCompatActivity {
                 allShowChange(sortIOId);
                 //对源数据的元素进行添加
                 itemList.add(0,item);
+                //数据库添加数据
                 itemList.get(0).save();
             }
             //保持原来分类状态并更新视图
